@@ -6,11 +6,11 @@
 
 
 # 운영체제
-* 강의 : 운영체제 - 반효경 교수님 (2014)
+#### 강의 : 운영체제 - 반효경 교수님 (2014)
 
-* 3월 3주차 링크
+#### [3월 3주차 링크]
  * Introduction
  * 시스템구조 & 프로그램 실행
  * 프로세스
 
-3월 3주차: https://github.com/hotpineapple/study-for-Tech-Interview/tree/main/OS/week01
+[3월 3주차]: https://github.com/hotpineapple/study-for-Tech-Interview/tree/main/OS/week01
