@@ -1,5 +1,4 @@
-# System Structure & Program Execute (2), Process (1)
----
+# System Structure & Program Execute (2), Process (1)---
 # 컴퓨터 시스템 기본 구조
 
 ### 1. Computer = Host (CPU + Memory)
