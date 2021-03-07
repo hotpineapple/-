@@ -13,4 +13,4 @@
  * 시스템구조 & 프로그램 실행
  * 프로세스
 
-[3월 3주차]: https://github.com/hotpineapple/study-for-Tech-Interview/tree/main/OS/week01
+[3월 3주차 ]: https://github.com/hotpineapple/study-for-Tech-Interview/tree/main/OS/week01
