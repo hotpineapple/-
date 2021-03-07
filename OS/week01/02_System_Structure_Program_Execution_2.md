@@ -78,7 +78,8 @@
 
 [그림] (a) 동기식 입출력과 (b) 비동기식 입출력
 
-![System%20Structure%20&%20Program%20Execute%20(2),%20Process%20(1%20a6ce353c5557424e9e453cf0e985289c/Untitled.png](System%20Structure%20&%20Program%20Execute%20(2),%20Process%20(1%20a6ce353c5557424e9e453cf0e985289c/Untitled.png)
+![Untitled](https://user-images.githubusercontent.com/77835382/110249371-316f7f00-7fb9-11eb-9cbe-922db669d022.png)
+
 
 - 이미지 출처 : [https://www.cs.uic.edu/~jbell/CourseNotes/OperatingSystems/13_IOSystems.html](https://www.cs.uic.edu/~jbell/CourseNotes/OperatingSystems/13_IOSystems.html)
 - 수정사항 : (a) user / kernel 영역 구분 → (b)와 같음
@@ -111,7 +112,8 @@
     - primary memory : CPU 가 직접 접근 및 처리 가능, byte단위
     - secondary : sector 단위
 
-![System%20Structure%20&%20Program%20Execute%20(2),%20Process%20(1%20a6ce353c5557424e9e453cf0e985289c/Untitled%201.png](System%20Structure%20&%20Program%20Execute%20(2),%20Process%20(1%20a6ce353c5557424e9e453cf0e985289c/Untitled%201.png)
+![Untitled 1](https://user-images.githubusercontent.com/77835382/110249416-5f54c380-7fb9-11eb-92bf-80498dbeb972.png)
+
 
 - 레지스터는 CPU내부에 있다.
 - Cache : CPU 연산속도와 Dram 접근 속도 차이를 줄이기 위한 목적. 같은 데이터에 대한 재접근이 빈번한 경우를 가정한다.
@@ -137,7 +139,8 @@
         - file system 과 swap area 모두 물리적으로는 하드디스크의 일부이나 용도에 따라 나뉜 것.
         - file system은 전원이 꺼져도 데이터가 유지되어야 하는 영역인 반면 swap area는 상관 없다.
 
-![System%20Structure%20&%20Program%20Execute%20(2),%20Process%20(1%20a6ce353c5557424e9e453cf0e985289c/Untitled%202.png](System%20Structure%20&%20Program%20Execute%20(2),%20Process%20(1%20a6ce353c5557424e9e453cf0e985289c/Untitled%202.png)
+![Untitled 2](https://user-images.githubusercontent.com/77835382/110249429-6b408580-7fb9-11eb-95ff-431faf833c8e.png)
+
 
 ### 각 프로세스(프로그램)의 주소공간 구성요소
 
@@ -147,7 +150,8 @@
 
 ### 커널의 주소공간 내용
 
-![System%20Structure%20&%20Program%20Execute%20(2),%20Process%20(1%20a6ce353c5557424e9e453cf0e985289c/Untitled%203.png](System%20Structure%20&%20Program%20Execute%20(2),%20Process%20(1%20a6ce353c5557424e9e453cf0e985289c/Untitled%203.png)
+![Untitled 3](https://user-images.githubusercontent.com/77835382/110249441-798ea180-7fb9-11eb-8745-4d3e09461954.png)
+
 
 - *data
     - PCB : Process Control Block 프로세스를 관리하기 위한 자료구조
@@ -156,10 +160,11 @@
 
 ### 사용자 프로그램이 사용하는 함수와 커널 함수
 
-![System%20Structure%20&%20Program%20Execute%20(2),%20Process%20(1%20a6ce353c5557424e9e453cf0e985289c/Untitled%204.png](System%20Structure%20&%20Program%20Execute%20(2),%20Process%20(1%20a6ce353c5557424e9e453cf0e985289c/Untitled%204.png)
+![Untitled 4](https://user-images.githubusercontent.com/77835382/110249453-827f7300-7fb9-11eb-9c52-700d5242e8bd.png)
+
 
 라이브러리 함수는 사용자프로그램의 실행파일에 포함되어 있다.
 
 ### 다이어그램
+![Untitled 5](https://user-images.githubusercontent.com/77835382/110249466-8ca17180-7fb9-11eb-8c16-50e522e6c95a.png)
 
-![System%20Structure%20&%20Program%20Execute%20(2),%20Process%20(1%20a6ce353c5557424e9e453cf0e985289c/Untitled%205.png](System%20Structure%20&%20Program%20Execute%20(2),%20Process%20(1%20a6ce353c5557424e9e453cf0e985289c/Untitled%205.png)
