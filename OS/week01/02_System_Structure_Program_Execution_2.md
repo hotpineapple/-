@@ -1,7 +1,7 @@
 # System Structure & Program Execute (2)
 
 
-## 컴퓨터 시스템 기본 구조
+## 01. 컴퓨터 시스템 기본 구조
 
 ### 1. Computer = Host (CPU + Memory)
 
@@ -45,7 +45,7 @@
 
 
 
-## 동기식 입출력, 비동기식 입출력
+## 02. 동기식 입출력, 비동기식 입출력
 
 ### 동기식(Synchronous) 입출력
 
@@ -86,7 +86,7 @@
 
 
 
-## DMA(Direct Memory Access)
+## 03. DMA(Direct Memory Access)
 
 - 예 ) 키보드에서 문자를 입력한 경우 CPU는 키보드 컨트롤러가 발생시킨 interrupt에 의해 하던 작업을 멈추고 운영체제에 제어를 넘겨 **키보드의 로컬 버퍼에 있는 데이터를 Byte단위로 memory에 복사**해온다.
 - CPU가 너무 많은 interrupt를 당하여 제어권을 운영체제로 넘길 때 마다 큰 **오버헤드가 발생**하며 사용자 프로그램의 정상 실행에 영향을 미친다.
@@ -95,7 +95,7 @@
 
 
 
-## 입출력 instruction 종류
+## 04. 입출력 instruction 종류
 
 1. 메모리만 접근하는 instruction(LOAD / STORE) 과는 별개의 I/O 수행하는 별개의 special instruction으로 입출력작업
 2. Memory mapped I/O
@@ -103,7 +103,7 @@
     - 메모리주소에 대해서 연장 주소를 부여하여 동일 instruction 사용함
 
 
-## 저장장치 계층 구조
+## 05. 저장장치 계층 구조
 
 - 속도
 - 용량(비용에 반비례)
@@ -122,7 +122,7 @@
 
 
 
-## 프로그램의 실행 (= Memory Load)
+## 06. 프로그램의 실행 (= Memory Load)
 
 - **프로그램은 실행파일 형태로 디스크에 저장되어 있다.**
 - **이 파일을 실행시키면 파일 시스템으로부터 virtual memory를 거쳐 memory 에 올라와서 프로세스가 된다.**
