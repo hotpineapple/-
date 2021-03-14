@@ -13,7 +13,7 @@
  * 시스템구조 & 프로그램 실행
  * 프로세스(1)
 
-### 3월 3주차
+### [3월 3주차 링크](https://github.com/hotpineapple/study-for-Tech-Interview/tree/main/OS/week02)
  * 프로세스 (2)
  * 프로세스 관리 (1/2)
  * CPU 스케줄링 (1/2)
