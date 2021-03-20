@@ -51,7 +51,7 @@
 
 # 3-1. fork() 시스템 콜
 
-- A process is created by the \`fork() system call.
+- A process is created by the `fork()` system call.
     - (Kernel) creates a new address space that is a duplicate of the caller.
 
 (fork 내부코드가 아닌 fork를 호출하는 사용자 프로그램의 코드)
@@ -76,7 +76,7 @@ int main()
 
 # 3-2. exec() 시스템 콜
 
-- A process can execute a different program by the \`exec() system call.
+- A process can execute a different program by the `exec()` system call.
     - replaces the memory image of the caller with a new program
 
 ```c
@@ -137,7 +137,7 @@ int main()
 
 | 이름 | 내용|
 
-|----|----|
+| ---- | ---- |
 
 | fork() | create a child(copy) |
 
