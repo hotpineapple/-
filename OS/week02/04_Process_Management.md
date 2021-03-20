@@ -1,6 +1,6 @@
 # Chapter 4. Process Management
 
-# 1. 프로세스 생성(Process Creation)
+## 1. 프로세스 생성(Process Creation)
 
 - 부모 프로세스는 **System call 을 통해 운영체제에 요청**하여 자식 프로세스를 복제 생성함
 - 트리(계층)구조를 형성
@@ -32,7 +32,7 @@
 
 원칙적으로는 자식 프로세스 또한 별개의 프로세스이므로 생성 시 주소공간을 복사하여 새로운 주소공간을 만들어야 한다. 그러나 만약 내용이 중복된다면 이는 메모리의 낭비일 것이다. 따라서 초기에는 부모와 주소공간을 공유하다가 자식 프로세스에서 수정이 발생했을 때 부모 프로세스 주소공간의 해당 부분만 복사하여 수정하는 방법을 사용하기도 한다.
 
-# 2. 프로세스 종료(Process Termination)
+## 2. 프로세스 종료(Process Termination)
 
 **원칙** : 항상 자식 프로세스가 먼저 종료된 후 부모 프로세스가 종료된다.
 
@@ -49,7 +49,7 @@
     - 운영체제는 부모프로세스가 종료하는 경우 자식이 더 이상 수행하는 것을 허용하지 않음
     - **단계적인 종료**
 
-# 3-1. fork() 시스템 콜
+## 3-1. fork() 시스템 콜
 
 - A process is created by the `fork()` system call.
     - (Kernel) creates a new address space that is a duplicate of the caller.
@@ -110,7 +110,7 @@ int main()
 
     cf. echo : 뒤에 나오는 argument들을 차례로 출력하는 리눅스 커맨드
 
-# 3-3. wait() 시스템 콜
+## 3-3. wait() 시스템 콜
 
 - 프로세스 A가 자식 프로세스를 생성한 후 wait() 시스템콜을 호출하면
     - 커널은 **자식 process가 종료될 때까지** 프로세스 A를 sleep시킨다(block 상태) → *자식이 종료될 때까지 부모가 기다리는 모델
@@ -118,7 +118,7 @@ int main()
 - 예) 리눅스 커맨드창에 프로그램이름을 입력하면 그 프로그램은 Shell(쉘)의 자식프로세스 형태로 생성 및 실행되며 이것이 종료될 때까지 쉘 프롬프트는 wait() 시스템콜을 하여 기다림.
 
 
-# 3-2. exit() 시스템 콜
+## 3-2. exit() 시스템 콜
 
 ### 프로세스의 종료
 
@@ -133,21 +133,17 @@ int main()
     - 부모프로세스가 종료되는 경우
         - 부모 프로세스가 종료되기 전 그 자식프로세스들이 먼저 종료되어야 한다
 
-## 요약 : 프로세스와 관련한 시스템 콜
+### 요약 : 프로세스와 관련한 시스템 콜
 
-| 이름 | 내용|
+|이름|내용|
+|----|----|
+|fork()|create a child(copy)|
+|exec()|overlay new image|
+|wait()|sleep until child is done|
+|exit()|frees all the resources, notify parent|
 
-| ---- | ---- |
 
-| fork() | create a child(copy) |
-
-| exec() | overlay new image |
-
-| wait() | sleep until child is done |
-
-| exit() | frees all the resources, notify parent |
-
-# 4. 프로세스 간 협력
+## 4. 프로세스 간 협력
 
 ### 1. 독립적 프로세스(Independent process)
 
