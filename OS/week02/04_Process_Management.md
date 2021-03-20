@@ -74,7 +74,7 @@ int main()
     - 부모 프로세스 : 양수(자식 프로세스의 아이디)
     - 자식 프로세스 : 0
 
-# 3-2. exec() 시스템 콜
+## 3-2. exec() 시스템 콜
 
 - A process can execute a different program by the `exec()` system call.
     - replaces the memory image of the caller with a new program
