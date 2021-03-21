@@ -36,7 +36,7 @@ CPU에서 instruction을 실행하는 단계(**CPU burst**)와 IO작업(**IO bur
 
 
 
-### CPU Scheduling
+## 03. CPU Scheduling
 
 :  현재 레디큐에 들어와있는 CPU를 얻고자하는 프로세서 중에서 어떤 프로레서한테 CPU를 줄것인지를 결정하는 메커니즘.
 
@@ -56,16 +56,43 @@ CPU에서 instruction을 실행하는 단계(**CPU burst**)와 IO작업(**IO bur
 
 <br>
 
-## 03. CPU Scheduling
+### CPU Scheduler & Dispatcher
 
-### Non-preemptive Scheduling  vs  Preemptive Scheduling
+- CPU Scheduler (OS 안에서 수행되는 코드)
 
-- Non-preemptive Scheduling (비선점형 스케줄링) : 강제로 CPU를 빼앗지 않는 방법
-- Preemptive Scheduling (선점형 스케줄링) : 강제로 CPU를 빼앗을 수 있는 방법
+  : ready 상태의 프로세스 중에서, 이번에 CPU를 줄 프로세스를 고른다. (결정)
+
+- Dispatcher (OS 안에서 수행되는 코드)
+
+  : CPU의 제어권을 CPU scheduler에 의해 선택된 프로세스에게 넘긴다. (준다)
+
+  이 과정을 문맥교환(context switch)이라고 한다.
+
+<br>
+
+#### CPU 스케줄링이 필요한 경우
+
+: 프로세스에게 다음의 상태 변화가 있을 때.
+
+1. Running -> Blocked (ex. I/O 요청하는 시스템콜)
+
+2. Running -> Ready (ex. 할당시간 만료로 timer interrupt)
+
+3. Blocked -> Ready (ex. I/O 완료 후 인터럽트)
+
+4. Terminate
+
+<br>
+
+
+### 스케줄링 방법
+
+- **Non-preemptive Scheduling (비선점형 스케줄링)** : 강제로 CPU를 빼앗지 않는 방법
+- **Preemptive Scheduling (선점형 스케줄링)** : 강제로 CPU를 빼앗을 수 있는 방법
   - *강제로 빼앗는 수단으로 timer라는 하드웨어를 두고 timer interrupt를 둬서 뺏을 수 있었음.* 
   - 현대적인 CPU 스케줄링이 대부분 사용하는 방식
 
-
+<br>
 
 ### Scheduling Criteira (성능 척도)
 
