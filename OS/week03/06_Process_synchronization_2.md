@@ -7,7 +7,7 @@
 ⇒ Synchronization 문제
 
 |Execution-box|Storage-box|
-|—-|——-|
+|--|---|
 |CPU|Memory|
 |컴퓨터 내부|디스크|
 |프로세스|해당 프로세스의 주소공간|
@@ -60,30 +60,27 @@
     - 방식 1 : **개별 변수에 Lock/Unlock**
     - 방식 2 : 매 순간 하나의 CPU만 커널에 접근가능하도록 ⇒ 비효율적
 
-## 6장 본론
+## 6장 본 내용
 
 - 데이터의 일관성을 보장하기 위해서 협력 프로세스 간 실행 순서를 정하는 매커니즘이 필요
 - **Race condition을 방지하기 위해 동시에 실행되는 프로세스(concurrent)의 동기화(synchronization)가 필수적이다.**
 
 - Critical section : 공유 데이터에 접근하는 코드를 말함
-    - P1의 X = X + 1;
-    - P2의 X = X - 1;
 
 공유 데이터에 접근하는 코드 앞뒤로 Entry / Exit Section을 둔다.
 
 Entry section에서 lock을 걸어서 다른 프로세스가 critical section을 수행할 수 없도록 하고 Exit section에서 lock을 푼다.
 
+### 프로그램적 해결법의 충족 조건
 - Mutual Exclusion (상호배제) : 한 프로세스가 크리티컬 섹션을 수행중이면 다른 모든 프로세스들은 자신의 크리티컬 섹션에 들어가면 안됨.
 - Progress : 크리티컬 섹션에 어떤 프로세스도 들어가있지 않은 경우에는 프로세스가 들어가도록 허용한다.
 - Bounded Waiting (유한대기) : 크리티컬 섹션에 들어가기 위해 지나치게 많이 기다리는 Starvation 이 생겨서는 안된다.
 
-⇒ 해결을 위한 알고리즘들..
-
-(다시 한번 강조하심) issue : critical section의 코드가 여러 개의 instruction으로 구성되어 있고 그 중간에 cpu를 뺏기는 것임.
+## 경쟁조건 해결을 위한 알고리즘들
 
 ### 알고리즘 1
 
-- 동기화를 위한 변수
+- critical section 실행가능한 차례를 표현하기  turn 변수
 
 ```c
 int turn; // initially turn = i in Process i
@@ -112,21 +109,23 @@ do {
 } while(1);
 ```
 
-만족 : mutual exclusion
+- 만족 : mutual exclusion
 
-문제점 : 아무도 크리티컬 섹션에 없는데도 불구하고 크리티컬 섹션에 들어가지 못할 수 있다. 최초 한번 들어가야 턴이 넘어감
+- 문제점 : 아무도 크리티컬 섹션에 없는데도 불구하고 크리티컬 섹션에 들어가지 못할 수 있다. 최초 한번 들어가야 턴이 넘어감
 
-P0은 빈번하게 크리니컬 섹션에 들어가고 싶으나 P1은 한 번만 들어가고 더이상 안들어간다면 P0도 영원히 못들어감 왜냐면 P1이 turn을 바꾸어주지 않기 때문임. 
+- 설명 : P0은 빈번하게 크리니컬 섹션에 들어가고 싶으나 P1은 한 번만 들어가고 더이상 안들어간다면 P0도 영원히 못들어감 왜냐면 P1이 turn을 바꾸어주지 않기 때문임. 
 
 ### 알고리즘 2
 
-- flag변수를 사용 :크리티컬 섹션에 들어가고 싶다는 의중을 표현
-- Process i 기준
+- Critical section 에 들어가고 싶다(=공유 데이터에 접근)는 의중을 표현하기 위한 flag 변수를 사용 
+- 
+- Process i 기준 코드
     1. 들어가고자 한다면 flag[i]를 true로 세팅
     2. flag[j] 도 true라면 기다림
     3. flag[j] 가 false라면 바로 들어감
     4. 크리티컬 섹션에서 나올 때 flag[i] = false 로 되돌려놓음
-- 문제점 : flag[i] = true 까지 수행 후 크리티컬 섹션에 들어가기 전에 cpu 선점당하면 둘다 들어가지 못한 상태에서 기다림. (역시 progress 를 충족하지 못함)
+    
+- 문제점 : flag[i] = true 까지 수행 후 크리티컬 섹션에 들어가기 전에 CPU를 선점당하면 둘 다 critical section 에 들어가지 못한 상태에서 기다림. (Progress 조건을 충족하지 못함)
 
 ### 알고리즘 3
 
@@ -137,7 +136,7 @@ P0은 빈번하게 크리니컬 섹션에 들어가고 싶으나 P1은 한 번�
 do {
 	flag[i] = true;              /* My intention is to enter... */
 	turn = j;                    /* Set to his turn => ????? */
-	while(flag[j] && turn == j); /* wait only if ... */ //둘 다 들어가고 싶으면 turn을 따지고, 그게 아니면 그냥 들어간다는 뜻?
+	while(flag[j] && turn == j); /* wait only if ... */ //둘 다 들어가고 싶으면 turn을 따지고, 그게 아니면 그냥 들어감
 	critical section
 	flag[i] = false;
 	remainder section
@@ -146,23 +145,22 @@ do {
 ```
 
 - 피터슨 알고리즘은 세 조건을 모두 충족한다.
+- 
 - 문제점 : busy waiting (=spin lock)
 
     : 프로세스가 할당된 시간동안 계속 cpu와 memory를 쓰면서 wait (다른 프로세스가 바꿔주기 전까지는 while 문 조건 변하지도 않는데 계속 체크)
 
-    ⇒ 해결법 : 뒤에....
+    ⇒ 해결방법 : block & wakeup
 
-### 지금까지의 문제상황은 고급언어에서의 하나의 실행문이 여러 개의 instruction으로 이루어져 있어 그 사이 cpu선점으로 인해 발생한다.
+#### 지금까지 살펴본 문제 상황은 고급언어에서의 하나의 실행문이 여러 개의 instruction으로 이루어져 있어 그 사이 cpu선점으로 인해 발생한다.
 
-### ⇒ 하나의 실행문이 하나의 instruction 이라면 쉽게 해결될 것이다.
+#### 그러므로 하나의 실행문이 하나의 instruction 이라면 쉽게 해결될 것이다.
 
-⇒ hardware 가 ***atomic*** test & modify를 지원한다면?
-
-(메모리에서 읽어서 처리후 저장하는 것을 하나의 동작으로)
+⇒ hardware 가 ***atomic*** test & modify를 지원한다면? (메모리에서 읽어오고, 처리 하고, 저장하는 것을 하나의 동작으로)
 
 : 메모리에서 어떤 값을 읽으면 그 값을 1로 세팅함(원래 0이엇든 1이엇든 간에)
 
-## 추상 자료형 Semaphores
+## 추상 자료형 Semaphores를 사용한 공유자원의 lock/unlock
 
 - 추상 자료형 : 오브젝트와 오퍼레이션으로 구성됨
 
@@ -170,7 +168,6 @@ do {
 
 - 추상 자료형인 세마포어를 통해 프로그래머가 보다 간단한 연산으로 lock을 걸고 풀 수 있다.
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0a06b4d2-85c2-4b0d-8540-e55874bba78c/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0a06b4d2-85c2-4b0d-8540-e55874bba78c/Untitled.png)
 
 1. 세마포어의 변수 S(정수) : LOCK이 아닌(=사용가능한?) 자원의 개수
     - 한 프로세스가 P 연산을 하면 S가 한 개 감소
@@ -178,31 +175,29 @@ do {
 2. 세마포어의 두 가지 (atomic) 연산
     - P 연산 : 공유데이터를 획득하는 과정 (자원을 LOCK)
     - V 연산 : 공유데이터를 사용 후 반납하는 과정(자원을 UNLOCK)
-- 그러나 세마포어 사용해도 여전히 busy wait 문제 있다.
+- 그러나 세마포어 사용해도 여전히 busy wait 문제는 해결되지 않음.
 
 - mutex : mutual exclusion
-- busy-wait 가 아닌 block & wakeup (= sleep lock,) 방식으로 semaphore 를구현하면?
+- busy-wait 가 아닌 block & wakeup (= sleep lock) 방식으로 semaphore 를구현하면?
 
-    : 못쓰면 쓸데없이 while문 돌면서 기다리는 게 아니라  resource 큐에 넣어놓고 잠들도록 함, 이후에 공유자원 락이 풀리면 깨움
+    : 공유자원을 쓰지 못하면 쓸데 없이 while문 돌면서 기다리면서 자신에게 할당된 시간을 다 보내느 것이 아니라 resource 큐에 넣어놓고 잠들도록 함, 이후에 공유자원의 lock이 풀리면 깨우는 방식
 
 ## 세마포어의 Busy-wait  해결 방법 : Block & wakeup
 
 - Semaphore의 S : 앞의 자원의 개수와는 의미가 다름
 - Semaphore의 P연산 :
-    - 자원의 유무에 관계없이 우선 S 감소
+    - 자원의 유무에 관계 없이 S 감소
     - 자원의 여분 이 있으면 획득
     - 없으면 자원을 기다리는 프로세스 넣고 잠들게 함
 - Semaphore의 V연산 :
-    - 자원반납하며 S 증가
+    - 자원 반납하며 S 증가
     - 자원을 기다리는 프로세스가 있다면 (S≤0) 깨움
 
-프로세스의 상태를 바꿔주는 것 또한 Overhead이므로
+- cf. 프로세스의 상태를 바꿔주는 것 또한 Overhead이다.
 
-⇒ 크리티컬 섹션의 길이에 따라.
+따라서 일반적으로는 블럭 앤 웨이컵 방식을 쓰지만 크리티컬 섹션의 길이가 매우 짧은 경우 busy wait 방식이 크게 문제가 되지 않을 수도 있다.)
 
-(일반적으로는 블럭앤 웨이컵 방식을 씀)
-
-자원의 개수가 여러개인 경우 :counting semaphore
+자원의 개수가 여러 개인 경우 : counting semaphore
 
 자원이 하나인 경우 : binary semaphore
 
@@ -210,13 +205,15 @@ do {
 
 ## Deadlock and Starvation
 
-- 예) 하드디스크 a 의 내용을 b에 copy 하는 작업은두 자원 모두 획득을 해야 실행 가능하다.
+- 예) 하드디스크 A 의 내용을 하드디스크 B에 copy 하는 작업은 두 자원 모두 획득 해야 실행 가능하다.
 - 세마포어 Q와 S
-- 서로 다른프로세스가 Q와 S를 하나씩 차지하고  계속 기다림
+- 1. 서로 다른프로세스가 Q와 S를 하나씩 차지하고 계속 기다리는 상황 : Deadlock
 
 ⇒ 해결방법 : 자원을획득하는 순서를 정함 (예: S를 먼저 얻어야 Q를 얻을 수 있도록)
 
-## Process Synchronization 과 관련된 Classical Problems(고전적 문제들)
+- 2. 세 개 이상의 프로세스가 있을 때 두 프로세스끼리만 번갈아가면서 공유 자원을 사용함으로써 다른 프로세스가 공유자원을 계속해서 기다리는 상황 : Starvation
+
+## Process Synchronization 과 관련된 고전적 문제들
 
 ### 1. Bounded-Buffer Problem (=Producer-Consumer Problem)
 
@@ -231,17 +228,17 @@ do {
     - mutex : lock 걸기 위한 변수
     - full : 내용이 들어있는 버퍼 개수 저장
     - empty : 비어있는 버퍼 개수 저장
-- 생산자 프로세스 입장에서의 자원 : empty 버퍼
-- 소비자 프로세스 입장에서의 자원 : full 버퍼
+- 생산자 프로세스의 자원 : empty 버퍼
+- 소비자 프로세스의 자원 : full 버퍼
 
 ### 2. Readers-Writers Problem
 
-주로 DB Read/ write시 발생
+주로 DB Read / Write시 발생
 
 - 공유 데이터 : DB
 - 읽는 프로세스 : 읽고잇는데 다른 리더 프로세스가 도착 시 걔도 읽을 수 잇음. 락은걸어야함 쓰는 프로세스는 막아야하니까
 - 쓰는 프로세스 : 쓰고 잇는데 다른 롸이터 프로세스가 도착하면 락이 걸림(독점)
-- 리더 카운트 변수
+- reader count 변수
 - db : DB r/w 에 대한 Lock
 - mutex : readcount 에 대한 lock
 - starvation
@@ -249,19 +246,13 @@ do {
 
 ### 3. Dining-Philosophers Problem
 
-두번째 해결방안 구현 코드(세마포어)
+## 모니터(Monitor)
 
-세마포어와 모니터의 목적 : 프로세스 동기화문제를 프로그래머가 보다 쉽게 해결하기 위해 제공됩
+세마포어를 이용하여 프로세스의 공유자원 접근을 관리하는 경우 프로그래머의 실수가 시스템에 중대한 영향을 미칠 수 있다.
 
-모니터
-
-두번째 해결방안 구현 코드(모니터)
-
-프로그래머의 실수가 시스템에 중대한 영향
-
-모니터 내부에 공유데이터와 그 접근을 위한 프로시저가 구현되어잇음
+모니터는 그 내부에 공유데이터와 그 접근을 위한 프로시저가 구현되어 있어(객체지향)
 
 1. 프로시저를 통해서만 공유데이터 접근
 2. 동시에 여러 프로시저 실행 불가능
 
-⇒ 장점 : 프로그래머가 락을 걸고 풀 필요가 없다.
+하므로 프로그래머가 직접 lock 을 걸고 풀 필요가 없다.
