@@ -15,6 +15,14 @@
 
 ### [3월 3주차 링크](https://github.com/hotpineapple/study-for-Tech-Interview/tree/main/OS/week02)
  * 프로세스 (2)
- * 프로세스 관리 (1/2)
- * CPU 스케줄링 (1/2)
+ * 프로세스 관리 (1),(2)
+ * CPU 스케줄링 (1),(2)
  * 프로세스 동기화 (1)
+ * 
+### [3월 4주차 링크](https://github.com/hotpineapple/study-for-Tech-Interview/tree/main/OS/week03)
+ * 프로세스 동기화(병행제어) (2)~(4)
+ * 데드락 (1),(2)
+
+### [3월 5주차 / 4월 1주차 링크](https://github.com/hotpineapple/study-for-Tech-Interview/tree/main/OS/week04)
+ * 메모리 관리 (1)~(4)
+ * 가상 메모리(1)
