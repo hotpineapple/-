@@ -26,3 +26,8 @@
 ### [3월 5주차 / 4월 1주차 링크](https://github.com/hotpineapple/study-for-Tech-Interview/tree/main/OS/week04)
  * 메모리 관리 (1)~(4)
  * 가상 메모리(1)
+
+### [4월 2주차 링크](https://github.com/hotpineapple/study-for-Tech-Interview/tree/main/OS/week05)
+ * 가상 메모리(2)
+ * 파일 시스템 (0)~(2)
+ * 디스크 관리와 스케줄링 (1),(2)
