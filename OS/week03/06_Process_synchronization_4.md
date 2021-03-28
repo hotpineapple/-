@@ -36,7 +36,7 @@ Process Synchronization (프로세스 동기화) = Concurrency Control (병행�
 
 어떤 조건을 만족하지 않아서 프로세스를 잠들게 할 목적으로 사용. -> wait과 signal 연산에 의해서만 접근 가능
 
-- **`x.wqit();`**  호출시, x라는 condition variable에 줄 서있게 된다. (즉, x에 프로세스를 **재우는** 역할)
+- **`x.wait();`**  호출시, x라는 condition variable에 줄 서있게 된다. (즉, x에 프로세스를 **재우는** 역할)
 - **`x.signal();`**  x라는 condition variable을 기다리면서 잠들어있는 프로세스 중 하나를 **깨워주는** 연산
 
 <br>
