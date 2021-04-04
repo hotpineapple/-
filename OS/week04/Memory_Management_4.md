@@ -41,15 +41,13 @@
 
 <br/>
 
----
-
-<br/>
-
 ## 3. Paged Segmentation(Segmentation with paging) 기법
 
 : 프로세스의 segment를 다시 여러 개의 page로 구성하는 기법
 
 <br/>
+
+![페이지드 세그멘테이션](image/pagedsegmentation.JPG)
 
 ### 참조 과정 
 
