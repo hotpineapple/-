@@ -20,7 +20,7 @@
 
   (메모리에 접근하기 위한 주소변환 시 페이지 테이블에 접근, 페이지테이블이 물리적메모리에 존재하기 때문에 또 한번 접근)
 
-- **속도 향상을 위해** associative register 혹은 translation look-aside buffer(`TLB`) 라 불리는 고속의 lookup hardware cache 사용
+- **속도 향상을 위해** associative register 혹은 translation look-aside buffer( **`TLB`** ) 라 불리는 고속의 lookup hardware cache 사용
 
 ### TLB
 
@@ -78,7 +78,7 @@
 
 <br>
 
-*** 2단계 페이징에서 기억할 점 !**
+#### 2단계 페이징에서 기억할 점 !
 
 - 안쪽 페이지 테이블(page of page table)의 크기는 page 크기와 동일하다. 즉, 안쪽 테이블은 테이블 자체가 페이지화되서 페이지 어딘가에 들어가 있게 됨. 
 
