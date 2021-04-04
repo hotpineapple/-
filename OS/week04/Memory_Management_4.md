@@ -45,7 +45,7 @@
 
 <br/>
 
-![페이지드 세그멘테이션](https://github.com/hotpineapple/study-for-Tech-Interview/tree/main/OS/week04/image/pagedsegmentation.JPG)
+![페이지드 세그멘테이션](https://github.com/hotpineapple/study-for-Tech-Interview/tree/main/OS/week04/image/pagedsegment.JPG)
 
 ### 참조 과정 
 
