@@ -16,8 +16,6 @@
 
     2-3. **Paged Segmentation, Segment with page**
 
-<br/>
-
 --- 
 
 <br/>
@@ -47,7 +45,7 @@
 
 <br/>
 
-![페이지드 세그멘테이션](image/pagedsegmentation.JPG)
+![페이지드 세그멘테이션](https://github.com/hotpineapple/study-for-Tech-Interview/tree/main/OS/week04/image/pagedsegmentation.JPG)
 
 ### 참조 과정 
 
@@ -68,8 +66,6 @@
 
 ### 특징
 * 기존 Segmentation 방식의 hole 발생 문제 해결
-
-<br/>
 
 ---
 
