@@ -3,7 +3,7 @@
 
 #### 1. Multilevel paging 기법에서 메모리 접근 시간을 줄이기 위해 이용되는 캐시메모리는?
 
-답 : TLB(Table Lookaside Buffer)
+답 : TLB(Translation Lookaside Buffer)
 
 #### 2. Memory Protection을 위해 페이지 테이블의 엔트리가 페이지 프레임 번호 이외에 가지는 속성(bit) 두 가지는?
 
