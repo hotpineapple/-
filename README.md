@@ -27,7 +27,8 @@
 ### [3월 5주차 / 4월 1주차 링크](https://github.com/hotpineapple/study-for-Tech-Interview/tree/main/OS/week04)
  * 메모리 관리 (1)~(4)
  * 가상 메모리(1)
-    * [참고](https://www.geeksforgeeks.org/virtual-memory-in-operating-system/)
+    * [참고1:](https://www.tutorialspoint.com/operating_system/os_virtual_memory.htm)   
+    * [참고2:](https://www.geeksforgeeks.org/virtual-memory-in-operating-system/)
 
 ### [4월 3주차 링크](https://github.com/hotpineapple/study-for-Tech-Interview/tree/main/OS/week05)
  * 가상 메모리(2)
