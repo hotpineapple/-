@@ -223,7 +223,7 @@ do{
 ### 3-2. Block & wakeup 으로 구현한 semaphore
 (복습) 3장 프로세스 상태
 
-![process_status](image/process_status.jpg)
+![process_status](image/process_status.JPG)
 
 <br>
 
@@ -244,7 +244,7 @@ do{
         - 이 프로세스의 PCB를 ready queue로 옮김
 
 
-    ![sleeplocksemaphore](image/sleeplocksemaphore.jpg)
+    ![sleeplocksemaphore](image/sleeplocksemaphore.JPG)
 
 
 - P연산 
