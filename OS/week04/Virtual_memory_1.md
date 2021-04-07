@@ -83,3 +83,8 @@
 * 최소힙으로 구현하여 O(logN)의 시간 복잡도
     * 참조횟수 비교 및 트리 재구성에 O(log n), 루트 제거에 O(1) 
 
+
+## 참고 사이트
+* [가상메모리 장점](https://www.tutorialspoint.com/operating_system/os_virtual_memory.htm)  
+* [메모리보호](https://en.wikipedia.org/wiki/Memory_protection) 
+* [가상메모리 기법](https://www.geeksforgeeks.org/virtual-memory-in-operating-system/)
