@@ -1,6 +1,6 @@
 # Virtual Memory (2)
 
-## 00. 캐슁 환경의 교체 알고리즘 (cont')
+## 01. 캐슁 환경의 교체 알고리즘 (cont')
 
 <br>
 
@@ -16,21 +16,21 @@
 
 주소변환한 페이지가 물리메모리에 존재하여 참조가능할 때 CPU 제어는 운영체제가 아닌 실행 중이던 프로세스가 계속 가지고 있기 때문이다. Page fault가 발생해야 비로소 운영체제로 넘어간다.
 
-> [결론] Virtual memory system 에서 LRU LFU 알고리즘을 사용할 수 없다 => 그러면 무슨 알고리즘을 사용하지?
+> 결론 : Virtual memory system 에서 LRU LFU 알고리즘을 사용할 수 없다. => 그러면 무슨 알고리즘을 사용하지?
 
-## 01. Clock 알고리즘
+### Clock 알고리즘
 
 : LRU의 근사 알고리즘 (가장 최근에 사용되지 않은 페이지는 아니지만 비슷한 맥락)
 
 *  Second chance, NUR(Not Recently Used), NRU 알고리즘이라고도 불림
 
-### 01-1. 동작
+#### 동작
 1. 하드웨어는 페이지가 참조되면 circular list의 ref bit 세팅
 2. 운영체제는 이 ref bit을 이용하여 어떤 페이지를 내쫒을 지 결정 
     * ref bit 확인 후  0으로 바꿔가며 이동함
     * ref bit 0이면 위치 저장 , 한바퀴 돌고 다시 왔는데도 0이면 내쫒음
 
-### 01-2. 개선
+#### 개선
 * modified bit 을 추가
 * reference bit=1 : 최근에 참조된 페이지
 * modified bit=1 : 최근에 변경된 페이지 => backing store 에 그냥 내쫒는 것이 아니라 변경사항 반영해야 함
@@ -47,16 +47,16 @@
 
 * (예) for 문을 백만 번 도는데 이 loop는 페이지 세 개를 참조한다. 그런데 이 프로세스에 페이지 두 개만 할당한다면? => 백만번 페이지 폴트남
 
-01. 프레임 개수에 따라
+1. 프레임 개수에 따라
     * Equal allocation
     * Proportional allocation
     * Prioirty allocation
     * 예) Working set, PFF
-02. replacement 범위에 따라
+2. replacement 범위에 따라
     * Global replacement
     * Local reaplacement
 
-### 02 - Overview : Degree of multi programming 이 너무 높을 때 발생하는 문제와 이를 방지하는 Scheme
+### 02 - Overview : Degree of multi programming 이 너무 클 때 발생하는 문제와 이를 방지하는 Scheme
 
 1. Thrashing
 2. Working set
