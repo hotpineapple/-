@@ -59,3 +59,38 @@
 ### 컴퓨터 네트워크 - 이석복 교수님 (2018)
 
 <br>
+
+### [4월 4주차](https://github.com/hotpineapple/study-for-Tech-Interview/tree/main/Network/week01)
+* 컴퓨터 네트워크 기본
+
+### [4월 5주차](https://github.com/hotpineapple/study-for-Tech-Interview/tree/main/Network/week02)
+* Application layer (응용계층)
+
+### [5월 1주차](https://github.com/hotpineapple/study-for-Tech-Interview/tree/main/Network/week03)
+* Transport layer (전송계층) (1)
+
+### [5월 2주차](https://github.com/hotpineapple/study-for-Tech-Interview/tree/main/Network/week04)
+* Transport layer (전송계층) (2)
+
+### 5월 3주차
+* Review & Refresh 😌
+
+### [5월 4주차](https://github.com/hotpineapple/study-for-Tech-Interview/tree/main/Network/week05)
+
+* Network layer (네트워트 계층) (1)
+
+### [6월 1주차](https://github.com/hotpineapple/study-for-Tech-Interview/tree/main/Network/week06)
+
+* Network layer (네트워트 계층) (2)
+
+### [6월 2주차](https://github.com/hotpineapple/study-for-Tech-Interview/tree/main/Network/week07)
+
+* Link layer (링크 계층) 
+
+### [6월 3주차](https://github.com/hotpineapple/study-for-Tech-Interview/tree/main/Network/week08)
+
+* 무선 및 모바일 네트워크
+
+### [6월 4주차](https://github.com/hotpineapple/study-for-Tech-Interview/tree/main/Network/week09)
+
+* 로드맵
