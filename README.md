@@ -18,7 +18,7 @@
 <br>
 
 ## 01. 운영체제
-### 운영체제 - 반효경 교수님 (2014)
+[운영체제 - 반효경 교수님 (2014)](http://www.kocw.net/home/search/kemView.do?kemId=1046323)
 
 <br>
 
@@ -56,12 +56,13 @@
 <br>
 
 ## 02. 네트워크
-### 컴퓨터 네트워크 - 이석복 교수님 (2018)
+[컴퓨터 네트워크 - 이석복 교수님 (2018)](http://www.kocw.net/home/search/kemView.do?kemId=1312397)
 
 <br>
 
 ### [4월 4주차](https://github.com/hotpineapple/study-for-Tech-Interview/tree/main/Network/week01)
 * 컴퓨터 네트워크 기본
+* [링크](http://www.kocw.net/home/search/kemView.do?kemId=1169634)
 
 ### [4월 5주차](https://github.com/hotpineapple/study-for-Tech-Interview/tree/main/Network/week02)
 * Application layer (응용계층)
