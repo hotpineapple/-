@@ -4,7 +4,7 @@
 * an interface between application and network 
 * OS 라는 우체통의 입구와 같음.
 * 한 프로세스에서 다른 프로세스로 데이터 전송하는 데 이용 
-
+* [참고](https://levelup.gitconnected.com/operating-system-concepts-sockets-a78ddb9b5f9c)
 ---
 ## 02. 소켓의 종류
 
