@@ -31,7 +31,7 @@
 
 ### (Overview) Socket Function의 큰 그림 (TCP case)
 
-[이미지](https://github.com/hotpineapple/study-for-Tech-Interview/new/main/Network/image/socket1.png)
+![이미지](https://github.com/hotpineapple/study-for-Tech-Interview/new/main/Network/image/socket1.png)
 
 #### 서버
 
