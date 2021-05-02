@@ -13,7 +13,9 @@
 >
 > HTTP는 response 크기가 굉장히 크기 때문에 유실되면 큰 문제이므로 TCP를 사용함.
 
-<br>
+<br><br>
+
+---
 
 ## Cahing Example
 
@@ -31,7 +33,7 @@
 
 - 링크 사용률이 80% 이상이 되면 지연 발생함
 
-
+<br>
 
 ### 해결방법
 
@@ -40,7 +42,7 @@
 
 ![image-20210502211710605](https://user-images.githubusercontent.com/77573938/116816164-cba80980-ab9b-11eb-8186-37a273fcf1e8.png)
 
-<br>
+<br><br>
 
 2. **해결책 : 웹 프록시를 설치함** (good)
    - hit rate=0.4이므로 request의 40%를 local web cache에서 처리한다.
@@ -48,7 +50,9 @@
 
 ![image-20210502211655641](https://user-images.githubusercontent.com/77573938/116816169-d2cf1780-ab9b-11eb-89a2-ea16d92ecac0.png)
 
-<br>
+<br><br>
+
+---
 
 ## Conditional GET
 
@@ -72,7 +76,9 @@
 - 그런데 만약 파일 사이즈가 4GB이면 요청이 들어올 때마다 4GB가 왔다갔다하므로 비효율적이다.
 - -> 파일이 같은 버전인지만 확인하고 싶을때 `Conditional GET` 을 사용하면 된다.
 
-<br>
+<br><br>
+
+---
 
 cf. 트래픽이든 뭐든 문제가 생겼을 때 기본적인 해결방안 : 캐시를 두거나 계층화를 시킨다.
 
@@ -94,7 +100,7 @@ DNS가 저장 관리하는 계층 구조에서 최상위엔 루트(root)가 존�
 
 <br>
 
-**프로세스와 프로세스 사이의 커뮤니케이션**
+#### 프로세스와 프로세스 사이의 커뮤니케이션
 
 - 프로세스가 다른 기계에 존재하는게 특징
 
@@ -117,6 +123,8 @@ DNS가 저장 관리하는 계층 구조에서 최상위엔 루트(root)가 존�
 - -> 현재 DNS는 **분산화 & 계층화** 시켜놨다.
 
 <br>
+
+---
 
 ## DNS: a distributed, hierarchical database
 
@@ -162,6 +170,8 @@ Example)  Client가 www.amazon.com 의 IP주소를 요청할 때
   - 프록시 역할을 하며 쿼리를 계층 구조로 전달
 
 <br>
+
+---
 
 ## host name으로 ip주소를 알아오는 과정
 
