@@ -62,7 +62,8 @@
 
 ### 4월 4주차
 * 컴퓨터 네트워크 기본
-* [링크](http://www.kocw.net/home/search/kemView.do?kemId=1169634)
+* [참고-2015년 강의](http://www.kocw.net/home/search/kemView.do?kemId=1169634)
+* [참고-생활코딩](https://opentutorials.org/course/2598/14427)
 
 ### [4월 5주차](https://github.com/hotpineapple/study-for-Tech-Interview/tree/main/Network/week01)
 * Application layer (응용계층)
