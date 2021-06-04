@@ -1,0 +1,35 @@
+# Network Address Translation
+
+## 4장 네트워크 계층 Overview
+
+1. 네트워크 계층 서비스 - IP 프로토콜
+2. NAT(Network Address Translation) 
+3. 라우팅 알고리즘
+4. 거리 벡터 알고리즘
+5. 계층적 경로 변경
+
+---
+
+<br>
+
+## 1 (요약)
+* 라우터들은 IP 패킷만 이해할 수 있으므로 네트워크 계층에서는 IP 프로토콜이 중요함
+* IP 주소는 네트워크 아이디(prefix, subnet)와 호스트 아이디로 계층화되어있음
+
+---
+
+<br>
+
+## 2. NAT(Network Address Translation) 
+
+> IPv4의 패킷 헤더의 SRC,DES 주소의 표현가능한 공간이 부족한 문제, 그러나 현실적으로 IPv6 프로토콜을 이해하도록 모든 라우터를 교체하는 것은 쉽지 않다.
+
+### 2-1. NAT 정의
+: src 주소를 내부적으로만 유일한 IP 주소에서 외부에서 사용가능(globally unique)하도록 gateway의 IP주소로 변환하여 내보냄
+
+### 2-2. 문제점
+
+
+* 어떻게 congestion window를 컨트롤하는가?
+
+
