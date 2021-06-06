@@ -4,7 +4,7 @@
 
 - IP패킷이 중요한 이유 : 출발지부터 도착지까지 존재하는 라우터들은 IP패킷으로 쌓여진 정보만을 인식하여 전달할 수 있게 됨.
 
-<img src="../image/Internet_protocol_suite.png" alt="Internet_protocol_suite" style="zoom: 80%;" />
+<img src="../image/Internet_protocol_suite.png" alt="Internet_protocol_suite" style="zoom: 50%;" />
 
 ---
 
@@ -12,7 +12,7 @@
 
 ## 1. 라우터 (router)
 
-- 라우터 : 인터페이스가 여러개 있는 디바이스. 인터페이스 만큼 IP 주소를 가짐. 각각 인터페이스의 subnet이 다름. [*(2.4 subnets 참고)*](###2-4. Subnets)
+- 라우터 : 인터페이스가 여러개 있는 디바이스. 인터페이스 만큼 IP 주소를 가짐. 각각 인터페이스의 subnet이 다름. [*(2.4 subnets 참고)*](###2-4-subnets-부분망)
 
 <br>
 
