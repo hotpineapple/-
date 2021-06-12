@@ -98,7 +98,7 @@
 
 : 최소비용을 만들기 위해 바로 직전에 방문하는 정점을 추적함
 
-![이미지](./iamge/forwarding_diagram.PNG)
+![이미지](./image/forwarding_diagram.PNG)
 
 #### => 최종적으로 만들어진 U의 포워딩 테이블 
 
