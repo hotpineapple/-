@@ -17,7 +17,7 @@
 
 #### (예시) 라우터들의 연결 상태 다이어그램
 
-![이미지](./image/link_diagram.png)
+![이미지](./image/link_diagram.PNG)
 
 ## 다익스트라 알고리즘
 
@@ -98,7 +98,7 @@
 
 : 최소비용을 만들기 위해 바로 직전에 방문하는 정점을 추적함
 
-![이미지]("./iamge/forwarding_diagram.png")
+![이미지](./iamge/forwarding_diagram.PNG)
 
 #### => 최종적으로 만들어진 U의 포워딩 테이블 
 
