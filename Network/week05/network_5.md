@@ -30,6 +30,16 @@
 
 => A lot of money...
 
-#### Customers and Providers
+#### 관계 - 1. Customers and Providers
 
-![이미지]()
+![이미지](./image/provider_customer.PNG)
+
+=> Cusomer pays provider for access to the Internet.
+
+예) 이화여자대학교(customer) - KT(provider)
+
+#### 관계 - 2. The Peering Relationship
+
+![이미지](./image/peer.PNG)
+
+예) SKT - KT
