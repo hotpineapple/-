@@ -2,11 +2,9 @@
 
 ## 1. 이더넷
 
-## 이더넷 프레임과 맥 주소(MAC Address)
+### 이더넷 프레임과 맥 주소(MAC Address)
 
 ![이미지](./image/ethernet_frame.png)
-
-: 프레임의 Source, Destination 주소는 IP 주소가 아닌 MAC 주소이다.
 
 ### IP Address vs. MAC Address(=LAN/Ethernet/Physical Address)
 
@@ -26,7 +24,7 @@
 |---|------------------------|
 |,|1.1.1.1(GWR)|
 
-![이미지](.image/data_flow.PNG)
+![이미지](./image/data_flow.PNG)
 
 => 브로드 캐스팅 질의와 그에 대한 응답을 통해 IP - MAC 매핑정보를 얻는다.
 
