@@ -21,9 +21,9 @@
 #### Question : Link 계층의 전송 단위인 패킷은 목적지의 MAC 주소를 알아야 한다. 그런데 IP주소만 가지고 어떻게 MAC 주소를 알아낼 수 있을까?
 
 * (참고) 패킷을 보낼 다음 GWR(GateWay Router)의 IP주소는 DHP를 통해 구성한 Forwarding Table 을 이용하여 알아낸다.
-|DST|Nest-hop(NOT a Destination!)|
-|---|---|
- |.|1.1.1.1(GWR)|
+|DST|Next-hop(NOTE:NOT a Destination)|
+|---|------------------------|
+|,|1.1.1.1(GWR)|
 
 ![이미지](./data_flow.PNG)
 
@@ -48,9 +48,9 @@
 
   |IP|MAC|TTL|
   |---|---|
-  |1.1.1.1|GWR MAC addr.|60|
+  |1.1.1.1|GWR MAC addr|60|
   
-3. ARP table 을 이용하여 이더넷 패킷 구섣
+3. ARP table 을 Look-up하여 이더넷 패킷 구섣
 
 ## 스위치
 
