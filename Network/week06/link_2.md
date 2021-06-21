@@ -4,7 +4,7 @@
 
 ## 이더넷 프레임과 맥 주소(MAC Address)
 
-![이미지](./image/ethernet_frame.PNG)
+![이미지](./image/ethernet_frame.png)
 
 : 프레임의 Source, Destination 주소는 IP 주소가 아닌 MAC 주소이다.
 
@@ -26,7 +26,7 @@
 |---|------------------------|
 |,|1.1.1.1(GWR)|
 
-![이미지](./data_flow.PNG)
+![이미지](.image/data_flow.PNG)
 
 => 브로드 캐스팅 질의와 그에 대한 응답을 통해 IP - MAC 매핑정보를 얻는다.
 
@@ -54,11 +54,15 @@
 3. ARP table 을 Look-up하여 이더넷 패킷 구섣
 
 ## 스위치
+: 실제로는 BUS topology 가 아닌 스위치를 이용한 STAR topology를 많이 사용함
 
-### switch table
-: 어떤 호스트가 어떤 인터페이스 쪽에 존재하는지
+* 스위치의 여러 인터페이스에 각 호스트를 연결하여사용함
+* 호스트 입장에서는 링크 하나만 연결된 것 처럼 보임
+*  collision detection 안되어 동시에 서로 다른 호스트가 프레임을 전송할 수 있음, 그런데..
 
-### self -learning
+#### Question: 어떤 호스트가 어떤 인터페이스 쪽에 존재하는지 어떻게 알지? => switch table
+
+### self -learning 을 통한 switch table 구성
 
 
 ---
