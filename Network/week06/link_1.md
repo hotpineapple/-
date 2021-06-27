@@ -14,11 +14,17 @@
 
 ## MAC 프로토콜
 
+**공유된 채널에 다수의 사용자가 접속할 수 있도록 도와주는 정의한 프로토콜**
+
 3개의 broad classes 존재
 
 
 
 ### 1. channel partitioning
+
+*사용자가 많은 경우 효율적*
+
+\- 이동통신 LTE에서 사용
 
 - **TDMA (time division multiple access)**
 
@@ -38,7 +44,11 @@
 
 : channel partitioning 방식의 단점을 보완하기 위한 방법
 
-채널이 분할되지 않아 유연한 방법이되, 충돌 발생 가능
+채널이 분할되지 않아 유연한 방법이되, 충돌 발생 가능.
+
+*사용자가 적은 경우 효율적*
+
+\- **이더넷, 와이파이에서 사용**
 
 - 충돌 발생 시 recover 하는 방법 : slotted ALOHA, ALOHA, ***CSMA***, CSMA/CD, CSMA/CA
 
@@ -72,11 +82,81 @@
 
 ### 3. Taking turns
 
+: channel partitioning 방법과 random access 방법의 장점을 합해 만들고자 한 방법.
+
+서로서로 번갈아가면서 보내도록 하는 방식. 이 방식은 참여하고 있는 모든 node들이 항상 보낼게 있다라는 전제 하에서 돌아가기 때문에 보낼게 없을 때의 리소스는 그냥 날라감. (별로 좋지 않은 방법 & 현실적으로 잘 안쓰임)
+
+**3-1. polling**
+
+이론적으로는 많이 쓰이나 실제로는 master 가 다운되면 slaves들도 다운되기 때문에 별로 안쓰임.
+
+![image-20210627105228431](https://user-images.githubusercontent.com/77573938/123549167-c4b80480-d7a2-11eb-9320-2744521a6156.png)
+
+
+**3-2. token passing**
+
+: token을 넘겨주는 방식.
+
+token이라는 special한 message를 가지고 있는 호스트만이 프레임을 전송할 수 있다고 규정.
+
+\- 단점: single point of failure (토큰 잃어버리면 전체가 망함)
+
+![image-20210627111008067](https://user-images.githubusercontent.com/77573938/123549168-c5e93180-d7a2-11eb-963e-3e840b52a030.png)
+
 
 
 <br>
 
 ## 이더넷 (Ethernet)
 
+> 유선 상황에서 MAC 프로토콜
+
+- 전세계의 사무실이나 가정에서 일반적으로 사용되는 LAN(근거리통신망)에서 가장 많이 활용되는 기술 규격.
+
+- 이더넷은 OSI 모델의 물리 계층에서 신호와 배선, 데이터 링크 계층에서 MAC 패킷과 프로토콜의 형식을 정의한다.
+
+<br>
+
+### physical topology
+
+- 과거에는 BUS형이였으나 현대에는 star형
+
+![image-20210627111751618](https://user-images.githubusercontent.com/77573938/123549170-c681c800-d7a2-11eb-923c-b329f8ad3b55.png)
 
 
+
+### 이더넷 구조
+
+![image-20210627112017974](https://user-images.githubusercontent.com/77573938/123549171-c681c800-d7a2-11eb-8569-f08264deb413.png)
+
+- Header의 **dest address, source address** <- IP address(X), MAC address(O) 링크계층의 주소임.
+- data 필드에 IP패킷이 들어감
+- 맨 뒤에 CRC 필드가 존재
+
+
+
+### Ethernet uses CSMA/CD
+
+- random access를 하되, 충돌 CSMA/CD 처리
+
+
+
+### 예시
+
+source: A / dest: Google
+
+- 링크 계층의 목표 : 구글까지 가야 할 패킷이 각 링크에서 충돌나지 않고 잘 가야함
+
+CSMA/CD는 프레임을 라우터에 전달했을 때 피드백을 안 주지만 (즉, 이더넷 상황에서는 피드백 안줌)
+
+유선 상황에서는 외부로부터 노이즈가 없기 때문에 내부에서 **충돌만 없으면** frame은 다음 단계 라우터까지 99.99% 잘 간다.
+
+반면, 충돌이 있을 경우에는 재전송해야 함
+
+**=> CSMA/CD 핵심: 100% 확률의 "충돌 감지"** 
+
+
+
+충돌이 발생했음에도 불구하고 탐지가 안되는 경우가 있냐? 있음. 이 경우 어캄?
+
+CSMA/CD 제대로 동작 안함.
