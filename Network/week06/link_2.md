@@ -46,7 +46,7 @@
 2. ARP table 을 구성, 캐싱
 
   |IP|MAC|TTL|
-  |---|---|
+  |---|---|---|
   |1.1.1.1|GWR MAC addr|60|
   
 3. ARP table 을 Look-up하여 이더넷 패킷 구섣
