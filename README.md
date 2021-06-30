@@ -91,8 +91,4 @@
 
 ### [6월 3주차](https://github.com/hotpineapple/study-for-Tech-Interview/tree/main/Network/week07)
 
-* 무선 및 모바일 네트워크
-
-### [6월 4주차](https://github.com/hotpineapple/study-for-Tech-Interview/tree/main/Network/week08)
-
-* 로드맵
+* Overview(응용계층~링크계층 시나리오)
