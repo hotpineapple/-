@@ -12,6 +12,7 @@
 
 - [01. 운영체제](#01-운영체제)
 - [02. 네트워크](#02-네트워크)
+- [03. 자료구조](#03-자료구조)
 
 ---
 
@@ -92,3 +93,12 @@
 ### [6월 3주차](https://github.com/hotpineapple/study-for-Tech-Interview/tree/main/Network/week07)
 
 * Overview(응용계층~링크계층 시나리오)
+
+---
+
+<br>
+
+## 03. 자료구조
+[자료구조 - 남원홍 교수님 (2016)](http://www.kocw.or.kr/home/search/kemView.do?kemId=1190355)
+
+<br>
