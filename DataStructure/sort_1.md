@@ -59,7 +59,16 @@
     - 이미 정렬된 경우 O(N)
 
 ```java
-private static void bubbleSort(int[] arr) {
+public class Main {
+    public static void main(String args[]) {
+        int[] arr = { 5, 3, 1, 2, 4 };
+        int[] temp = new int[5];
+        
+        // insertionSort(arr);
+        // selectionSort(arr);
+        // bubbleSort(arr);
+    }
+    private static void bubbleSort(int[] arr) {
         for(int end = arr.length-1 ; end > 0 ; end--) { // set end index
             
             int aux = 0;
@@ -114,4 +123,5 @@ private static void bubbleSort(int[] arr) {
         
         System.out.println(Arrays.toString(arr));
     }
+}
 ```
