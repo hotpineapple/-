@@ -33,7 +33,6 @@
         - 맨 앞 or 뒤 원소는 고정됨, 다음 턴에서는 비교 제외
     2. 이를 N번(턴) 반복
         - 미리 정렬된 경우 한 번도 교환 X, 다음 라운드를 안 돌림으로써 개선 가능
-
 ### 선택정렬
 - 평균 O(N^2), 최악 O(N^2)
 - 제자리 정렬
@@ -58,3 +57,61 @@
 - 장점
     - 온라인 정렬 가능 (원소 하나씩 주어져도 정렬 가능)
     - 이미 정렬된 경우 O(N)
+
+```java
+private static void bubbleSort(int[] arr) {
+        for(int end = arr.length-1 ; end > 0 ; end--) { // set end index
+            
+            int aux = 0;
+            int temp = arr[aux];
+            while(aux<end){ // swap if necessary until end index 
+                if(arr[aux] > arr[aux+1]){
+                    arr[aux] = arr[aux+1];
+                    arr[aux+1] = temp;
+                    System.out.println(Arrays.toString(arr));
+                }
+                aux++;
+            }
+        }
+        
+        System.out.println(Arrays.toString(arr));
+    }
+    private static void selectionSort(int[] arr) {
+        for(int index = 0 ; index < arr.length-1 ; index++) { // set target
+            System.out.println(Arrays.toString(arr));
+        
+            int target = arr[index];
+            int min = arr[index+1];
+            int minIdx = index+1;
+            for(int j=index+2;j<arr.length;j++) { // find minunum value
+                if(min>arr[j]){
+                    min = arr[j];
+                    minIdx = j;
+                }
+            }
+            // swap target and mininum value
+            arr[minIdx] = target;
+            arr[index] = min;
+        }
+        
+        System.out.println(Arrays.toString(arr));
+    }
+    private static void insertionSort(int[] arr) {
+        for(int index = 1 ; index < arr.length ; index++) { // set target
+            System.out.println(Arrays.toString(arr));
+            
+            int target = arr[index];
+            int aux = index - 1;
+
+            while((aux >= 0) && (arr[aux] > target)) { // insert into subsequence which is located at the left side of target
+               System.out.println("substitute arr[" + (aux+1) + "] to arr[" + aux + "]");
+               arr[aux + 1] = arr[aux];
+               aux--;
+            }
+            System.out.println("substitute arr[" + (aux+1) + "] to arr[" + index + "]");
+            arr[aux + 1] = target;
+        }
+        
+        System.out.println(Arrays.toString(arr));
+    }
+```
