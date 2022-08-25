@@ -13,20 +13,27 @@
         - 반복  
         - 한 번만 스캔하면 됨 O(N)
 - 코드
-    ```c
-        void mergeSort(int arr[], int temp[], int left, int right) {
-            int mid;
+    ```java
+    import java.util.*;
+    public class Main {
+        public static void main(String args[]) {
+            int[] arr = { 5, 3, 1, 2, 4 };
+            int[] temp = { 5, 3, 1, 2, 4 };
+            mergeSort(arr, temp, 0 , 4);
+        }
+        private static void mergeSort(int[] arr, int[] temp, int left, int right) {
+            System.out.println("divied with left, right: "+ left+", "+right);
             if(right > left) {
-                mid = (right + left) / 2;
-                mergeSort(arr, temp, left, mid);
-                mergeSort(arr, temp, mid + 1, right);
-                merge(arr, temp, left, mid + 1, right);
+                int mid = (left+right)/2;
+                mergeSort(arr,  temp,  left,  mid); // sort left half (recursive)
+                mergeSort(arr,  temp,  mid+1,  right); // sort right half (recursive)
+                mergeNcompare(arr, temp, left, mid+1, right); // merge two sub array
             }
         }
-
-        void merge(int arr[], int temp[], int left, int mid, int right) {
-            int i, left_end, size, temp_pos;
-            left_end = mid - 1;
+        private static void mergeNcompare(int arr[], int temp[], int left, int mid, int right) {
+            System.out.println("merge and compare from " + left + " to " + right);
+            int size, left_end, temp_pos;
+            left_end = mid-1;
             temp_pos = left;
             size = right - left + 1;
 
@@ -42,29 +49,31 @@
                     temp_pos = temp_pos + 1;
                     mid = mid + 1;
                 }
+
+                System.out.println("step 1: "+Arrays.toString(temp));
             }
 
             // 2-1. 오른쪽 절반 다 선택됐다면 왼쪽 나머지 통째로 복사
             while(left <= left_end){ // 왼쪽 반쪽에서 선택
-                temp[temp_pos] = arr[left]
+                // System.out.println(temp_pos+","+left);
+                temp[temp_pos] = arr[left];
                 left = left + 1;
                 temp_pos = temp_pos + 1;
             }
 
             // 2-2. 왼쪽 절반 다 선택됐다면 오른쪽 나머지 통째로 복사 
             while(mid <= right){ // 오른쪽 반쪽에서 선택
-                temp[temp_pos] = arr[mid]
+                temp[temp_pos] = arr[mid];
                 mid = mid + 1;
                 temp_pos = temp_pos + 1;
             }
-
+            System.out.println("step 2: "+Arrays.toString(temp));
             // 3. temp 를 arr로 복사
-            for(int i = 0; i <= size; i++) { 
-                arr[right] = temp[right];
-                right = right + 1;
+            for(int i = 0; i < size; i++) { 
+                arr[i] = temp[i];
             }
         }
-
+    }
     ```
 
 ### 힙 정렬
