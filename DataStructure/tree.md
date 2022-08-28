@@ -65,24 +65,16 @@
                         this.right = right;
                     }
                 }
-                public static class BinaryTree {
-                    BinaryTreeNode root;
-                    BinaryTreeNode[] nodes;
-                    public BinaryTree() {}
-                    public BinaryTree(int[] arr) {
-                        nodes = new BinaryTreeNode[arr.length * 2]; // 16
-                        for(int i=arr.length-1;i>=1;i--) {
-                            nodes[i] = new BinaryTreeNode(arr[i], nodes[i*2], nodes[i*2+1]);
-                        }
-                        this.root = nodes[1];
-                    }
-                }
                 public static void main(String[] args) throws IOException {
+                    BinaryTreeNode n7 = new BinaryTreeNode(7,null,null);
+                    BinaryTreeNode n6 = new BinaryTreeNode(7,null,null);
+                    BinaryTreeNode n5 = new BinaryTreeNode(7,null,null);
+                    BinaryTreeNode n4 = new BinaryTreeNode(7,null,null);
+                    BinaryTreeNode n3 = new BinaryTreeNode(7,n6,n7);
+                    BinaryTreeNode n2 = new BinaryTreeNode(7,n4,n5);
+                    BinaryTreeNode n1 = new BinaryTreeNode(7,n2,n3);
 
-                    int[] arr = {0, 1, 2, 3, 4, 5, 6, 7};
-                    BinaryTree tree = new BinaryTree(arr);
-
-                    preOrder(tree.root);
+                    preOrder(n1);
                 }	
                 private static void preOrder(BinaryTreeNode node){
                     if(node == null) return;
@@ -99,28 +91,25 @@
             - 시간복잡도: O(N)
             - 공간복잡도: O(N)
             ```java
+            BinaryTreeNode n7 = new BinaryTreeNode(7,null,null);
+            BinaryTreeNode n6 = new BinaryTreeNode(7,null,null);
+            BinaryTreeNode n5 = new BinaryTreeNode(7,null,null);
+            BinaryTreeNode n4 = new BinaryTreeNode(7,null,null);
+            BinaryTreeNode n3 = new BinaryTreeNode(7,n6,n7);
+            BinaryTreeNode n2 = new BinaryTreeNode(7,n4,n5);
+            BinaryTreeNode n1 = new BinaryTreeNode(7,n2,n3);
             
+            Stack<BinaryTreeNode> stack = new Stack<>();
+            
+            BinaryTreeNode = n1;
+            while(true) {
+                while(root!=null){
+                    System.out.println(root.data);
+                    stack.push(root);
+                    root = root.left;
+                }
+                if(stack.isEmpty()) break;
+                root = stack.pop();
+                root = root.right;
+            }
             ```
-   
-### 이진검색트리(Binary Search Tree, BST)
-- 노드의 데이터에 제한을 둔 이진트리 
-    - 자기자신보다 작으면 왼쪽 서브트리, 크면 오른쪽 서브트리에 저장
-- 일반 트리의 검색의 경우 전부 살펴봐야 하므로 O(n)인데 비해
-- 이진 검색트리는 일반적으로 O(logn), **검색기능에 특화**
-    - skewed 트리의 경우(Worst case) O(n)
-    - 그러므로 Balanced 하도록 유지시키는 것이 중요
-- 중위탐색 하면 정렬된 리스트를 만들 수 있음
-
-#### 레드블랙트리
-- 자가 균형 이진 탐색 트리
-- 컴퓨터 공학 분야에서 숫자 등의 비교 가능한 자료를 정리하는 데 쓰이는 자료구조
-- 자료의 삽입과 삭제, 검색에서 최악의 경우에도 일정한 실행 시간을 보장(worst-case guarantees)
-- 활용 
-    - 리눅스 커널 프로세스들의 가상 메모리영역을 관리
-    - 리눅스 커널 CPU 스케줄링을 위해 프로세스를 관리
-    - 비정형 데이터를 처리하기 위한 NoSQL 시스템에서도 데이터의 메타데이터 등을 관리
-    - 함수형 프로그래밍에서 쓰이는 연관 배열이나 집합(set)등을 내부 구현
-    - 다른 자료구조 대비 메모리의 접근횟수 및 사용용량 측면에서 효율성이 높기 때문
-- [참고1](https://koreascience.kr/article/JAKO201907752705892.pdf)
-- [참고2](https://ko.wikipedia.org/wiki/%EB%A0%88%EB%93%9C-%EB%B8%94%EB%9E%99_%ED%8A%B8%EB%A6%AC)
-
