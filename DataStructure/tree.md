@@ -28,14 +28,7 @@
     - 자식노드가 없거나 두개이고 모든 리프노드의 레벨이 같은 이진트리
 - 완전이진트리
     - 포화이진트리를 위에서 아래로, 왼쪽에서 오른쪽으로 채워가는 과정에 있는 트리
-- 이진트리 구현
-    ```java
-    class BinaryTreeNode {
-        int data;
-        BinaryTreeNode left;
-        BinaryTreeNode right;
-    }
-    ```
+    - 인덱스의 규칙을 이용하여 배열로 간단히 구현 가능
 - 탐색(Traverse)
     - 전위탐색
         - 자기자신 - 왼쪽자식 - 오른쪽 자식
@@ -54,23 +47,52 @@
                     - 이진트리의 성능을 떨어뜨림
                     - 수가 큰 경우 stack overflow
             ```java
-            class Main {
-                class BinaryTreeNode {
+            import java.io.BufferedReader;
+            import java.io.IOException;
+            import java.io.InputStreamReader;
+            import java.util.*;
+            import java.util.StringTokenizer;
+
+            public class Main {
+                public static class BinaryTreeNode {
                     int data;
                     BinaryTreeNode left;
                     BinaryTreeNode right;
+                    public BinaryTreeNode() {}
+                    public BinaryTreeNode(int data, BinaryTreeNode left, BinaryTreeNode right) {
+                        this.data = data;
+                        this.left = left;
+                        this.right = right;
+                    }
                 }
-                public static void main(String[] args) {
-                    int[] arr = {1,2,3,4,5,6,7};
-                    BinaryTreeNode bt = new BinaryTreeNode(arr);
-                    preorder();
+                public static class BinaryTree {
+                    BinaryTreeNode root;
+                    BinaryTreeNode[] nodes;
+                    public BinaryTree() {}
+                    public BinaryTree(int[] arr) {
+                        nodes = new BinaryTreeNode[arr.length * 2]; // 16
+                        for(int i=arr.length-1;i>=1;i--) {
+                            nodes[i] = new BinaryTreeNode(arr[i], nodes[i*2], nodes[i*2+1]);
+                        }
+                        this.root = nodes[1];
+                    }
                 }
+                public static void main(String[] args) throws IOException {
+
+                    int[] arr = {0, 1, 2, 3, 4, 5, 6, 7};
+                    BinaryTree tree = new BinaryTree(arr);
+
+                    preOrder(tree.root);
+                }	
                 private static void preOrder(BinaryTreeNode node){
-                    print(node.data);
+                    if(node == null) return;
+
+                    System.out.println(node.data);
                     preOrder(node.left);
-                    preOrder(node.left);
+                    preOrder(node.right);
                 }
             }
+
             ```
         - Iteration
             - 스택 자료구조를 사용하여 돌아올 위치를 저장해야 함(재귀 방식에서의 콜스택 기능)  
