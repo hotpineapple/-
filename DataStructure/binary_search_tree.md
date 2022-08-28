@@ -153,10 +153,30 @@
     - 높이 7일 때 88
     - ...
   - 결론: 개수 n일때 높이 1.44 logN (꽉 차지 않은 경우 logN보다 좀 더 높기 때문)
-- AVL 트리 만들기
+- AVL 트리 유지하기
   - insert, delete 후 조정(=회전)을 통해
-  - AVL 트리에 위반되는 노드의 서브트리 높이차는 2 임
-  - 
+  - insert 후 AVL 트리에 위반되는 노드의 서브트리 높이차는 1 -> 2 임
+  - insert 위치가 위반 노드의 LL, LR, RL, RR 에 따라 해결
+     - LL
+     	- 단순회전
+     	- 시계방향 회전
+    	```java
+	private static AVLTreeNode singleRotateLL(AVLTreeNode x){
+		AVLTreeNode w = x.left;
+		
+		x.left = w.right;
+		x.height = Math.max(x.left.getHeight(), x.right.getHeight())+1;
+		w.height = Math.max(w.left.getHeight(), x.getHeight()+1;
+		
+		return w;
+	}
+	```
+     - LR
+     	- 이중회전
+     - RL
+     	- 이중회전
+     - RR
+     	- 단순회전
   - 구현
   ```java
   class AVLTreeNode {
@@ -165,17 +185,9 @@
     AVLTree left;
     AVLTree right;
   
-    public int getHeight(AVLTreeNode node) {
+    public int getHeight {
       if(node==null) return -1;
-      return node.height;
-    }
-    
-    public void insert() {
-    
-    }
-    
-    public void delete() {
-    
+      return this.height;
     }
   }
   ```
