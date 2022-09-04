@@ -71,67 +71,65 @@
   - 삭제되는 항목이 리프노드가 아닐 수도 있기 때문
   - 삭제되는 항목의 서브트리에 대한 처리를 해주어야 함
   ```java
-  public static void main(String[] args) throws IOException {
-		
-    BinarySearchTreeNode n0 = new BinarySearchTreeNode(3,null,null);
-		BinarySearchTreeNode n1 = new BinarySearchTreeNode(1,null,null);
-		BinarySearchTreeNode n2 = new BinarySearchTreeNode(4,n0,null);
-		BinarySearchTreeNode n3 = new BinarySearchTreeNode(6,null,null);
-		BinarySearchTreeNode n4 = new BinarySearchTreeNode(8,null,null);
-		BinarySearchTreeNode n5 = new BinarySearchTreeNode(2,n1,n2);
-		BinarySearchTreeNode n6 = new BinarySearchTreeNode(7,n3,n4);
-		BinarySearchTreeNode n7 = new BinarySearchTreeNode(5,n5,n6);
+  public static void main(String[] args) throws IOException {	
+   	BinarySearchTreeNode n0 = new BinarySearchTreeNode(3,null,null);
+	BinarySearchTreeNode n1 = new BinarySearchTreeNode(1,null,null);
+	BinarySearchTreeNode n2 = new BinarySearchTreeNode(4,n0,null);
+	BinarySearchTreeNode n3 = new BinarySearchTreeNode(6,null,null);
+	BinarySearchTreeNode n4 = new BinarySearchTreeNode(8,null,null);
+	BinarySearchTreeNode n5 = new BinarySearchTreeNode(2,n1,n2);
+	BinarySearchTreeNode n6 = new BinarySearchTreeNode(7,n3,n4);
+	BinarySearchTreeNode n7 = new BinarySearchTreeNode(5,n5,n6);
 
-    deleteRecursion(5, root.left);
-    System.out.println(findRecusion(5,n7)); 
-	}
+	deleteRecursion(5, root.left);
+	System.out.println(findRecusion(5,n7)); 
+  }
   private static boolean findRecursion(int val, BinarySearchTreeNode node) {
-	    if(node == null) return false;
-	    else if(node.data > val) return findRecusion(val, node.left);
-	    else if(node.data < val) return findRecusion(val, node.right);
-	    else return true;
-	}
-	private static BinarySearchTreeNode makeLeafOrOneChild(int val, BinarySearchTreeNode node) {
-		
-		if(node.data== val) {
-			if(node.left != null && node.right != null) {
-				// 전임노드와 교환
-				int temp = node.data;
-				BinarySearchTreeNode prev = findMaxRecursion(node.left);
-				node.data = prev.data;
-				prev.data = temp;
-				
-				return node;
-			}
-		}
+        if(node == null) return false;
+        else if(node.data > val) return findRecusion(val, node.left);
+        else if(node.data < val) return findRecusion(val, node.right);
+        else return true;
+  }
+  private static BinarySearchTreeNode makeLeafOrOneChild(int val, BinarySearchTreeNode node) {
 
-		else if(val<node.data) node.left = makeLeaf(val, node.left);
-		else if(val>node.data) node.right = makeLeaf(val, node.right);
-		
-		return node;
-	}
-	private static BinarySearchTreeNode deleteRecursion(int val, BinarySearchTreeNode node){
-		if(node == null) return node;
+	if(node.data== val) {
+		if(node.left != null && node.right != null) {
+			// 전임노드와 교환
+			int temp = node.data;
+			BinarySearchTreeNode prev = findMaxRecursion(node.left);
+			node.data = prev.data;
+			prev.data = temp;
 
-		else if(val<node.data) node.left = deleteRecursion(val, node.left);
-		else if(val>node.data) node.right = deleteRecursion(val, node.right);	
-		else {
-			// 리프노드
-			if(node.left == null && node.right == null) {
-				return null;
-			}
-			// 서브트리 하나 - 왼쪽
-			else if(node.left != null && node.right == null) return node.left;
-			// 서브트리 하나 - 오른쪽
-			else if(node.left == null && node.right != null) return node.right;
-      else {
-				BinarySearchTreeNode root = makeLeafOrOneChild(val, node);
-				deleteRecursion(val,root);
-			}
+			return node;
 		}
-		
-		return node;
-    }
+	}
+
+	else if(val<node.data) node.left = makeLeaf(val, node.left);
+	else if(val>node.data) node.right = makeLeaf(val, node.right);
+
+	return node;
+  }
+  private static BinarySearchTreeNode deleteRecursion(int val, BinarySearchTreeNode node){
+	if(node == null) return node;
+
+	else if(val<node.data) node.left = deleteRecursion(val, node.left);
+	else if(val>node.data) node.right = deleteRecursion(val, node.right);	
+	else {
+		// 리프노드
+		if(node.left == null && node.right == null) {
+			return null;
+		}
+		// 서브트리 하나 - 왼쪽
+		else if(node.left != null && node.right == null) return node.left;
+		// 서브트리 하나 - 오른쪽
+		else if(node.left == null && node.right != null) return node.right;
+                else {
+			BinarySearchTreeNode root = makeLeafOrOneChild(val, node);
+			deleteRecursion(val,root);
+		}
+	}
+	return node;
+  }
   ```
 
 ### 균형 이진검색트리(balanced binary search tree)
