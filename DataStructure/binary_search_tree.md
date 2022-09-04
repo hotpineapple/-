@@ -135,6 +135,20 @@
   ```
 
 ### 균형 이진검색트리(balanced binary search tree)
+  - 구현: 이진트리에 height 만 추가됨
+  ```java
+  class AVLTreeNode {
+    int data;
+    int height;
+    AVLTree left;
+    AVLTree right;
+  
+    public int getHeight {
+      if(node==null) return -1;
+      return this.height;
+    }
+  }
+  ```
 - 이진검색트리가 skew 되지 않도록 하여 장점을 살림(단순 연결리스트와 차별되도록)
 - 즉 트리의 높이를 log(N)으로 조절하는 것
   - 왼쪽 서브트리와 오른쪽 서브트리의 높이 차를 적도록
@@ -157,40 +171,30 @@
   - insert, delete 후 조정(=회전)을 통해
   - insert 후 AVL 트리에 위반되는 노드의 서브트리 높이차는 1 -> 2 임
   - insert 위치가 위반 노드의 LL, LR, RL, RR 에 따라 해결
-     - LL
-     	- 단순회전
-     	- 시계방향 회전
-    	```java
-	private static AVLTreeNode singleRotateLL(AVLTreeNode x){
-		AVLTreeNode w = x.left;
-		
-		x.left = w.right;
-		x.height = Math.max(x.left.getHeight(), x.right.getHeight())+1;
-		w.height = Math.max(w.left.getHeight(), x.getHeight()+1;
-		
-		return w;
-	}
-	```
-     - LR
-     	- 이중회전
-     - RL
-     	- 이중회전
-     - RR
-     	- 단순회전
-  - 구현
+- LL(위반노드 기준 왼쪽 자식의 왼쪽 서브트리에 삽입되어 높이차가 2인 경우)
+  - 단순회전(한번회전)
+  - 시계방향 회전
+  - 이미지
+  ![image](https://github.com/hotpineapple/study-for-Tech-Interview/blob/c724a99a1f0e3dd7f3231503c484873c7394e37f/DataStructure/avl_ll_rotation.PNG)
+  - 코드
   ```java
-  class AVLTreeNode {
-    int data;
-    int height;
-    AVLTree left;
-    AVLTree right;
-  
-    public int getHeight {
-      if(node==null) return -1;
-      return this.height;
-    }
+  private static AVLTreeNode singleRotateLL(AVLTreeNode x){
+	AVLTreeNode w = x.left;
+
+	x.left = w.right;
+	x.height = Math.max(x.left.getHeight(), x.right.getHeight())+1;
+	w.height = Math.max(w.left.getHeight(), x.getHeight())+1;
+
+	return w;
   }
   ```
+- LR
+  - 이중회전
+  - 왼쪽 서브트리 기준 RR -> 위반노드 기준 LL 회전
+- RL
+  - 이중회전
+- RR
+  - 단순회전
 
 ### cf. 레드블랙트리
 - 자가 균형 이진 탐색 트리
